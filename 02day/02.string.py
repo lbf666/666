@@ -1,27 +1,27 @@
-# # string字符串: 声明, 基本操作, 索引切片, 自带方法, 实战面试题一例
-# string = "this's my house"
-#
-# # 索引切片
-# # t    h    i    s    '    s        m   y       h    o    u    s   e
-# # 0    1    2    3    4    5    6   7   8   9   10   11   12   13  14
-# # -15  -14  -13  -12  -11  -10  -9  -8  -7  -6  -5   -4   -3   -2  -1
-# print(string[7])  # 字符串名字[索引号]
-# for index in range(len(string)):
-#     print(string[index])
-# # print(len(string))
-#
-# for element in string:
-#     print(element)
-#
-# # 利用索引切片出this单词
-# print(string[0:4])
-# print(string[0:15:2])     # 步长:step
-# print(string[0:15])
-# print(string[:])
-# print(string)
-# print(string[:4])
-# print(string[4:])
-# print(string[-8:9])
+# string字符串: 声明, 基本操作, 索引切片, 自带方法, 实战面试题一例
+string = "this's my house"
+
+# 索引切片
+# t    h    i    s    '    s        m   y       h    o    u    s   e
+# 0    1    2    3    4    5    6   7   8   9   10   11   12   13  14
+# -15  -14  -13  -12  -11  -10  -9  -8  -7  -6  -5   -4   -3   -2  -1
+print(string[7])  # 字符串名字[索引号]
+for index in range(len(string)):
+    print(string[index])
+# print(len(string))
+
+for element in string:
+    print(element)
+
+# 利用索引切片出this单词
+print(string[0:4])
+print(string[0:15:2])     # 步长:step
+print(string[0:15])
+print(string[:])
+print(string)
+print(string[:4])
+print(string[4:])
+print(string[-8:9])
 
 # 字符串中自带的几种方法
 string = "This's My House"
@@ -62,16 +62,3 @@ print('^'.join(string))
 
 # 有这样一个句子"this is my house", 对该句子进行反转, 输出为"house my is this"
 # 模拟用的验证码输入并进行比对;
-
-
-
-
-
-
-
-
-
-
-
-
-
