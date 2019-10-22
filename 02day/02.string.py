@@ -60,5 +60,53 @@ string = 'wow'  # w^o^W
 print(string.join('^^^'))
 print('^'.join(string))
 
-# 有这样一个句子"this is my house", 对该句子进行反转, 输出为"house my is this"
-# 模拟用的验证码输入并进行比对;
+# 字符串中字符的统计
+string = 'www.baidu.com'
+print(string.count('w'))
+print(string.index('a', 1, len(string)))
+
+# 判断一个字符串是否包含在对应的字符串中?
+if 'www' in string:
+    print('yes')
+else:
+    print('no')
+
+# 字符串格式化打印
+name, score = 'tom', 90
+# print("tom's grade is 90")
+# print(name, "'s grade is", score)
+print("{}'s grade is {}".format(name, score))
+print("圆周率保留小数点后四位: {:.4f}".format(3.1415926))
+# print("%s's grade is %d" % (name, score))
+
+# 字符串的测试方法
+number = input("please input number: ")
+if number.isdigit():
+    print("yes")
+else:
+    print("no")
+
+word = input("please input word: ")
+if word.isalpha():
+    print("yes")
+else:
+    print("no")
+
+space = input('please input: ')
+if space.isspace():
+    print("yes")
+else:
+    print("no")
+
+
+# 判断一个变量是否是某个类型
+string = 'hello world'
+if type(string) == str:
+    print(string.upper())
+
+if isinstance(string, str):
+    print(string.upper())
+
+
+
+
