@@ -106,7 +106,3 @@ if type(string) == str:
 
 if isinstance(string, str):
     print(string.upper())
-
-
-
-
