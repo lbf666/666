@@ -67,6 +67,7 @@ print(ips01.fromkeys([x for x in range(100)]))
 # {'1.1.1.1': 12, '2.2.2.2': 5, '3.3.3.3': 78, '4.4.4.4': 34}
 # 按照字典中每个键值对的值大小进行排序; 要求从大到小;
 ips = {'1.1.1.1': 12, '2.2.2.2': 5, '3.3.3.3': 78, '4.4.4.4': 34}
+print(ips.items())
 ips_list = []
 for items in ips.items():
     ips_list.append(items)
