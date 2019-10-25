@@ -71,7 +71,7 @@ else:
         print("快去注册吧,没你这人")
 
 
-# 2-3+4-5+6-7+8.....+50
+# 计算 2-3+4-5+6-7+8.....-47+48-49+50 的结果
 n = 0
 for number in range(2, 51):
     if number % 2 == 0:
@@ -80,19 +80,12 @@ for number in range(2, 51):
         n -= number
 print(n)
 
+# 计算 2-3+4-5+6-7+8.....-47+48-49+50 的结果
 # 郝式解法
-sum = 0
-i = 2
-while i <= 50:
-    sum += i * (-1)**i
-    i += 1
-print(sum)
-
-
-listA = ['www', 'qfedu', 'com']
-print('.'.join(listA))
-
-
-
+s, n = 0, 2
+while n <= 50:
+    s += n * (-1)**n
+    n += 1
+print(s)
 
 
