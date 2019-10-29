@@ -5,7 +5,13 @@ sentence_list = sentence.split()
 sentence_list.reverse()
 sentence_result = ''
 for element in sentence_list:
-    sentence_result += element + ' '
+    if ',' in element:
+        element = element.strip(',')
+        sentence_result += element + ' '
+    else:
+        if element == 'this':
+            element = element + ','
+        sentence_result += element + ' '
 print(sentence_result.strip())
 
 # 列表["string", "tuple", "list", (1, 2, 3, 4, 5), [6, 7]]转换成["string", "tuple", "list", 1, 2, 3, 4, 5, 6, 7];
