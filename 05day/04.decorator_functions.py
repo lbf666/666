@@ -49,10 +49,3 @@ def load(user, password):
 
 
 load('tom', '123456')
-
-
-
-
-
-
-
