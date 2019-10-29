@@ -76,10 +76,9 @@ while stop - start > 0:
         break
 
 # list的增删改查
-listA = [1, 2, 3]
+listA = [1, 2, 3, True]
 
 # list增加
-listA.append(True)
 print(listA)
 
 listB = [4, 5, 6]
@@ -128,8 +127,3 @@ print(listB)
 listC = [12, 14, 21, 6, 3, 1, 22, 45, 31]
 listC.sort()
 print(listC)
-
-
-
-
-

@@ -13,6 +13,3 @@ def sums():
 
 sums()
 print(variable)
-
-
-
