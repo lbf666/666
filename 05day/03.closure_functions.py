@@ -16,7 +16,3 @@ result = waibu(2)
 print(result(4))
 print(result(5))
 
-
-
-
-
