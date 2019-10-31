@@ -2,6 +2,7 @@ import psutil
 import yagmail
 # https://pypi.org
 
+
 sendmail = yagmail.SMTP(user='user01@163.com', password='******', host='smtp.163.com')
 def contents(device, rate):
     content = [
