@@ -1,0 +1,36 @@
+---
+- name: transfer hosts static dns to remote machine.
+  template:
+    src: hosts
+    dest: /etc/hosts
+
+- name: configure disk format and mounted on machine.
+  script: /root/.ansible/playbook/lnmpArch/roles/glusterfs/templates/mountdisk.sh
+
+- name: install glusterfs source.
+  yum:
+    name: centos-release-gluster
+    state: latest
+
+- name: install glusterfs service.
+  yum:
+    name: ["glusterfs", "glusterfs-server", "glusterfs-fuse", "glusterfs-rdma"]
+    state: latest
+  notify:
+    - start glusterfs service
+
+- name: build peer list.
+  shell: "gluster peer probe glusterfs01"
+  when:
+    - ansible_default_ipv4.get('address') == {{ glusterfs02_ip }}
+
+- name: build peer list.
+  shell: "gluster peer probe glusterfs02"
+  when:
+    - ansible_default_ipv4.get('address') == {{ glusterfs01_ip }}
+
+- name: create share volume.
+  script: /root/.ansible/playbook/lnmpArch/roles/glusterfs/templates/createvolume.sh
+  when:
+    ansible_default_ipv4.get('address') == {{ glusterfs01_ip }}
+

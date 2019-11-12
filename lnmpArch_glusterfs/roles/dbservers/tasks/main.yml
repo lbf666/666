@@ -1,0 +1,47 @@
+---
+- name: transfer importance file.
+  template:
+    src: mysql57installrepo.j2
+    dest: /etc/yum.repos.d/mysql57.repo
+
+- name: install mysql community server.
+  yum:
+    name: ["MySQL-python", "mysql-community-server"]
+    state: latest
+
+- name: configure dbserver options.
+  template:
+    src: mysqlconfigfile.j2
+    dest: /etc/my.cnf
+  notify:
+    - start mysqld service
+
+- name: changed dbserver root@localhost password.
+  script: "/root/.ansible/playbook/lnmpArch/roles/dbservers/templates/setpwd.sh"
+
+- name: copy file to remote machine.
+  template:
+    src: mycnf.j2
+    dest: /root/.my.cnf
+
+- name: create database on dbservers.
+  mysql_db:
+    login_host: "{{ dbserver_ip }}"
+    login_user: "root"
+    login_password: "{{ dbserver_password }}"
+    login_unix_socket: /var/lib/mysql/mysql.sock
+    name: "phptest"
+    encoding: "utf8"
+    state: present
+
+- name: create privileges user on dbservers.
+  mysql_user:
+    login_host: "{{ dbserver_ip }}"
+    login_user: "root"
+    login_password: "{{ dbserver_password }}"
+    login_unix_socket: /var/lib/mysql/mysql.sock
+    user: "phper"
+    host: "192.168.123.%"
+    password: "{{ dbserver_password }}"
+    priv: "phptest.*:ALL"
+    state: present

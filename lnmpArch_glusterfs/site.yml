@@ -1,0 +1,24 @@
+---
+- name: glusterfs server & configure.
+  gather_facts: false
+  hosts: glusterfs
+  roles:
+    - glusterfs
+
+- name: dbservers deploy & configure.
+  gather_facts: true
+  hosts: dbservers
+  roles:
+    - dbservers
+
+- name: webservers deploy & configure.
+  gather_facts: false
+  hosts: webservers
+  roles:
+    - webservers
+
+- name: phpenv deploy & configure.
+  gather_facts: false
+  hosts: phpenv
+  roles:
+    - phpenv
